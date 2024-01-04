@@ -2,7 +2,7 @@ import ListItem from "./ListItem";
 
 let GetCrudItems = async () => {
   try {
-    let res = await fetch("http://localhost:3000/api/crud", {
+    let res = await fetch(process.env.LOCAL_DOMAIN + "/api/crud", {
       cache: "no-store",
     });
     let { data } = await res.json();

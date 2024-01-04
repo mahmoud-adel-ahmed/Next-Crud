@@ -17,12 +17,15 @@ export default function Form() {
     }
 
     try {
-      let res = await fetch("http://localhost:3000/api/crud", {
+      let res = await fetch("/api/crud", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ title, description }),
+        body: JSON.stringify({
+          title: title.trim(),
+          description: description.trim(),
+        }),
       });
 
       if (!res.ok) {

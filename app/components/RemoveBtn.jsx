@@ -6,7 +6,7 @@ export default function RemoveBtn({ id }) {
   let router = useRouter();
   let handleDelete = async () => {
     try {
-      let res = await fetch("http://localhost:3000/api/crud?id=" + id, {
+      let res = await fetch("/api/crud?id=" + id, {
         method: "DELETE",
         headers: {
           "Content-Type": "application/json",

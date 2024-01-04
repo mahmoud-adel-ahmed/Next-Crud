@@ -23,16 +23,16 @@ export default function EditForm({ data }) {
     }
 
     try {
-      let res = await fetch(
-        "http://localhost:3000/api/crud/" + data?.item?._id,
-        {
-          method: "PATCH",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ newTitle, newDescription }),
-        }
-      );
+      let res = await fetch("/api/crud/" + data?.item?._id, {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          newTitle: newTitle.trim(),
+          newDescription: newDescription.trim(),
+        }),
+      });
 
       if (!res.ok) {
         throw new Error("Error Creating data!");

@@ -12,7 +12,7 @@ export default async function Edit({ params }) {
 
 let getItem = async (id) => {
   try {
-    let res = await fetch("http://localhost:3000/api/crud/" + id, {
+    let res = await fetch(process.env.LOCAL_DOMAIN + "/api/crud/" + id, {
       cache: "no-store",
     });
     let { data } = await res.json();
